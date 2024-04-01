@@ -110,7 +110,7 @@ ENV/
 env.bak/
 venv.bak/
 img/
-可以移动到vercel中/
+其他/可以移动到vercel中/
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -120,6 +120,7 @@ img/
 
 # mkdocs documentation
 /site
+/其他/教学
 
 # mypy
 .mypy_cache/

@@ -6,7 +6,7 @@ def move_images_to_dir():
     cwd = os.getcwd()
 
     # 在当前工作目录下，创建一个新的子目录 "img"
-    img_dir = os.path.join(cwd, '../img')
+    img_dir = os.path.join(cwd, '../../img')
     os.makedirs(img_dir, exist_ok=True)
 
     # 定义一个图片文件的扩展名列表

@@ -1,0 +1,1 @@
+from .movepicture import move_images_to_dir

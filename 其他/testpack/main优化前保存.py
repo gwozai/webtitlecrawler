@@ -1,9 +1,9 @@
 from config import MINIO_CONFIG, MYSQL_CONFIG
-from mappertool.miniotools import MinioUploader
-from mappertool.redis_singleton import RedisCache
-from crawl.crawlwebsite import crawl_website
-from mappertool.sqlmysqlsaveinfo import DatabaseManager
-from utiltool.movepicture import move_images_to_dir
+from myapp.mappertool.miniotools import MinioUploader
+from myapp.mappertool.redis_singleton import RedisCache
+from myapp.crawl import crawl_website
+from myapp.mappertool import DatabaseManager
+from myapp.utils.movepicture import move_images_to_dir
 if __name__ == "__main__":
     RedisCache().enqueue("addqueqe", "https://baidu.com/")
     RedisCache().enqueue("addqueqe", 'https://gwozai.com/')

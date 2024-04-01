@@ -27,3 +27,9 @@ REDIS_CONFIG = {
     "dbid": int(os.getenv("REDIS_DBID")),
     "password": os.getenv("REDIS_PASSWORD")
 }
+
+import os
+
+class Config(object):
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://website:Yd6XjJswwJZaKEmb@1.15.7.2/website'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

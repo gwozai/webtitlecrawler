@@ -27,7 +27,7 @@ DeepCrawler将爬取该网站的所有链接，还会进行深度爬取。
 
 ## 维护者:
 
-DeepCrawler维护团队: [联系我们](mailto:contact@deepcrawler.com)
+DeepCrawler维护团队: [联系我们](mailto:sun584257191@gmail.com)
 
 ## 反馈：
 
@@ -57,3 +57,34 @@ flask 调用数据库获取信息的数据，
 controller层 接口
 service 层 redis minio mysql  业务，实现类
 mapper 层 redis minio mysql
+
+
+替换为数据库操作
+
+把深度可控制，抓够了就返回。 默认为3层， 继续抓取  填入任务id, websit,抓取深度
+website 1
+website 2
+website 3
+输入 网址，或网址页，然后加队列进行抓取。
+
+可以有rabbitmq的集成
+
+登录操作
+
+- [ ] 数据库查询操作 使用sql 
+- [ ] 前端展示
+- [ ] rabbitmq集成flask
+
+
+输入输出： 从接口输入，从接口输出，然后加权限
+
+
+pip install Flask
+pip install flask_sqlalchemy
+pip install flask_migrate
+
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+
+python run.py

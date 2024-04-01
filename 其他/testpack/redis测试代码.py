@@ -1,5 +1,5 @@
 import unittest
-from mappertool.redis_singleton import RedisCache  # 这里假设你的实现在一个名为your_module的模块中
+from myapp.mappertool.redis_singleton import RedisCache  # 这里假设你的实现在一个名为your_module的模块中
 
 
 class TestRedisCache(unittest.TestCase):
