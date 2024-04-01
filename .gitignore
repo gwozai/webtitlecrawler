@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+*.png
 # C extensions
 *.so
 
@@ -130,3 +130,9 @@ dmypy.json
 .pyre/
 .idea/
 # End of .gitignore
+
+
+client/node_modules/
+client/.env
+client/dist/
+client/npm-debug.log

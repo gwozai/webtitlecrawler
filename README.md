@@ -36,3 +36,24 @@ DeepCrawler维护团队: [联系我们](mailto:contact@deepcrawler.com)
 ## 许可证
 
 本项目在MIT许可下发布。详情请参阅[LICENSE](LICENSE)文件。
+
+
+
+实用flask做服务器，vue做前端
+vue 打包可以在flask中运行
+
+
+flask 调用抓取，因为接口时间太长，是否有其他方法持续传入数据，会给前端传入数据  后端提交完成返回任务id，通过任务id可以停止或进行，
+       /status 判断id状态
+flask 调用数据库获取信息的数据，
+      检测数据库是否有表信息，没有的话从sqlit导入
+      对sql进行增删改查的操做
+- 把表封装为sql文件
+- 判断是否有表，没有的话用sql创建
+- 增删改查代码
+
+
+
+controller层 接口
+service 层 redis minio mysql  业务，实现类
+mapper 层 redis minio mysql

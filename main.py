@@ -1,9 +1,11 @@
-from crawlwebsite import crawl_website
+# your_main_script.py
+
+from config import MINIO_CONFIG, MYSQL_CONFIG
 from miniotools import MinioUploader
-import os
 from redis_singleton import RedisCache
+from crawl.crawlwebsite import crawl_website
 from sqlmysqlsaveinfo import DatabaseManager
-from 移动图片 import move_images_to_dir
+from utiltool.movepicture import move_images_to_dir
 
 if __name__ == "__main__":
     # RedisCache().enqueue("addqueqe", "https://baidu.com/")
@@ -30,12 +32,11 @@ if __name__ == "__main__":
         if infos is not None:
             print(f'正在抓取...: {decoded_str}')
             website_url, title, h1, links_set, screenshot_path = infos
-
             minio_uploader = MinioUploader(
-                endpoint='1.15.7.2:9000',
-                access_key='lizhuo',
-                secret_key='1906014138',
-                secure=False
+                endpoint=MINIO_CONFIG['endpoint'],
+                access_key=MINIO_CONFIG['access_key'],
+                secret_key=MINIO_CONFIG['secret_key'],
+                secure=MINIO_CONFIG['secure']
             )
             minio_path = minio_uploader.upload_file("ooo", screenshot_path)
             for i in  links_set:
@@ -58,7 +59,8 @@ if __name__ == "__main__":
                 'minio_path': minio_path
             }
 
-            db_manager = DatabaseManager('1.15.7.2', 'website', 'Yd6XjJswwJZaKEmb', 'website')
+            db_manager = DatabaseManager(MYSQL_CONFIG['host'], MYSQL_CONFIG['dbname'],
+                                         MYSQL_CONFIG['user'], MYSQL_CONFIG['password'])
             db_manager.connect()
             result = db_manager.save_to_database(data)
             print(result)

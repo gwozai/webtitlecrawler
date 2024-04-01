@@ -1,9 +1,8 @@
-from crawlwebsite import crawl_website
+from crawl.crawlwebsite import crawl_website
 from miniotools import MinioUploader
-import os
 from redis_singleton import RedisCache
 from sqlmysqlsaveinfo import DatabaseManager
-from 移动图片 import move_images_to_dir
+from utiltool.movepicture import move_images_to_dir
 
 if __name__ == "__main__":
     RedisCache().enqueue("addqueqe", "https://baidu.com/")

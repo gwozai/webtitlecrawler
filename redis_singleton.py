@@ -1,10 +1,5 @@
 import redis
-
-class RedisDBConfig:
-    HOST = '1.15.7.2'
-    PORT = 6379
-    DBID = 0
-    PASSWORD = 'sY38KEspDNZjptN6'
+from config import REDIS_CONFIG
 
 def operator_status(func):
     def gen_status(*args, **kwargs):
@@ -16,6 +11,7 @@ def operator_status(func):
         return {'result': result, 'error': error}
     return gen_status
 
+
 class RedisCache(object):
     def __init__(self):
         if not hasattr(RedisCache, 'pool'):
@@ -25,11 +21,10 @@ class RedisCache(object):
     @staticmethod
     def create_pool():
         RedisCache.pool = redis.ConnectionPool(
-            host=RedisDBConfig.HOST,
-            port=RedisDBConfig.PORT,
-            db=RedisDBConfig.DBID,
-            password=RedisDBConfig.PASSWORD)
-
+            host=REDIS_CONFIG['host'],
+            port=REDIS_CONFIG['port'],
+            db=REDIS_CONFIG['dbid'],
+            password=REDIS_CONFIG['password'])
     @operator_status
     def set_data(self, key, value):
         return self._connection.set(key, value)
